@@ -1,0 +1,9 @@
+.label kernal_chrout=$ffd2
+.label top_line=$400
+.label bottom_line=$7c1
+.label game_loop=$942
+.label main=$900
+.label end=$945
+.label init_game_field=$903
+.label bottom_character=$79
+.label top_character=$78
