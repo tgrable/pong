@@ -6,11 +6,18 @@
 
 *=$0900
 
+.const VIC2 = $d000
+
 .label kernal_chrout    = $ffd2
 .label top_line         = $0400
 .label bottom_line      = $07C1
 .label top_character    = $0078
 .label bottom_character = $0079
+
+.namespace sprites {
+    .label postition = VIC2
+    .label enabled_bits = VIC2 + 21
+}
 
 main:
     jsr init_game_field
@@ -27,6 +34,18 @@ init_game_field:
     :draw_line(bottom_line, bottom_character)
     :split_screen()
     :draw_score()
+
+draw_sprite:
+    lda #%00000001
+    sta sprites.enabled_bits
+
+    .var x = 25
+    .var y = 51
+
+    lda #x
+    sta sprites.postition + 0
+    lda #y
+    sta sprites.postition + 1
 
 game_loop:
     // :handle_joystick_input(joystick_port_1)
