@@ -3,12 +3,15 @@
 .namespace sprites {
   .label postition=$d000
   .label enabled_bits=$d015
+  .label vertical_stretch_bits=$d017
+  .label colors=$d027
+  .label pointers=$7f8
 }
 .label bottom_character=$79
 .label top_character=$78
-.label draw_sprite=$9ab
+.label draw_sprite=$95b
 .label top_line=$400
 .label bottom_line=$7c1
-.label game_loop=$9ba
-.label end=$9bd
-.label init_game_field=$903
+.label game_loop=$977
+.label end=$97a
+.label init_game_field=$2000
