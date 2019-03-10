@@ -1,4 +1,4 @@
-#importonce
+.importonce
 
 init_game_field:
     lda #147
@@ -9,13 +9,14 @@ init_game_field:
     stx $d020           // border color
 
     :draw_line(top_line, top_character)
-    :draw_line(bottom_line, bottom_character)
     :split_screen()
+    :draw_line(bottom_line, bottom_character)
+    
     rts
 
 .macro draw_line(start, character) {
     ldx #$00
-    lda #$78            //character character is giving me the wrong char code  // #$20 is the spacebar Screen Code
+    lda #character            //character character is giving me the wrong char code  // #$20 is the spacebar Screen Code
 draw_loop:
     sta start,x         // fill four areas with 256 spacebar characters
     cpx #39
